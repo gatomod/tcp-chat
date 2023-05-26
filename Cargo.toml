@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "client/src-tauri",
+    "server",
+    "backups/tcptest"
+]

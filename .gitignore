@@ -1,0 +1,6 @@
+backups/
+target/
+node_modules/
+dist/
+
+Cargo.lock

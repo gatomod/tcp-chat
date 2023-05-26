@@ -1,0 +1,52 @@
+{
+	"build": {
+		"beforeDevCommand": "pnpm dev",
+		"beforeBuildCommand": "pnpm build",
+		"devPath": "http://localhost:1420",
+		"distDir": "../dist",
+		"withGlobalTauri": false
+	},
+	"package": {
+		"productName": "TCP Chat",
+		"version": "1.0.0"
+	},
+	"tauri": {
+		"allowlist": {
+			"dialog": {
+				"all": false,
+				"ask": false,
+				"confirm": false,
+				"message": true,
+				"open": false,
+				"save": false
+			}
+		},
+		"bundle": {
+			"active": true,
+			"icon": [
+				"icons/32x32.png",
+				"icons/128x128.png",
+				"icons/128x128@2x.png",
+				"icons/icon.icns",
+				"icons/icon.ico"
+			],
+			"identifier": "com.gatomo.tcpchat",
+			"targets": "all"
+		},
+		"security": {
+			"csp": null
+		},
+		"updater": {
+			"active": false
+		},
+		"windows": [
+			{
+				"fullscreen": false,
+				"resizable": true,
+				"title": "TCP Chat",
+				"width": 1000,
+				"height": 650
+			}
+		]
+	}
+}
