@@ -20,7 +20,7 @@ This project doesn't want to replace any tool or being a new way to communicate,
 
 ### Frontend
 
--   **Language:** [TypeScript](https://www.typescriptlang.org/)
+-   **Language:** [TypeScript](https://www.typescriptlang.org/), [Rust](https://www.rust-lang.org/es)
 -   **Libs:** [Solid](https://www.solidjs.com/), [Tauri](https://tauri.app/), [Vite](https://vitejs.dev/)
 -   **Style:** [Tailwind](https://tailwindcss.com/)
 
