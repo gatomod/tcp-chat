@@ -34,13 +34,15 @@ This project doesn't want to replace any tool or being a new way to communicate,
 
 Since the project is built with Tokio, the standard library and Tauri, TCP Chat is multiplatform.
 
-To start using TCP Chat you need to clone repository, install dependencies and build locally.
+To start using TCP Chat you need to clone repository, install dependencies and build locally. Client dependencies are managed with [PNPM](https://pnpm.io/), a fast and disk efficient package manager. You can use NPM or Yarn if you want, but I recommend you use PNPM. You can install it with `npm i -g pnpm` and then restarting your terminal.
 
 ```bash
 # Clone the repo
 git clone https://github.com/gatomod/tcp-chat.git
 
 # Build the server
+cd tcp-chat
+
 cargo build --release -p server
 
 # Build the client
@@ -66,11 +68,26 @@ target/release/tcp-chat
 
 ## How it works?
 
-The server opens a TCP Listener. For each new connection spawns a thread and keeps open the connection. At this point, client and server can share the data (which is serialized in JSON, structs are defined in [structs.rs](server/src/structs.rs)).
+### The connection
+The server opens a TCP Listener. For each new connection spawns a thread and keeps open the connection. At this point, client and server can share the data.
 
 When a connection sends a message, data is sent to server, which shares the packet between all threads and send the message to all connections.
 
 Tauri receives the message and passes it to the web client.
+
+### The "handshake"
+TCP Chat has an own protocol to join server and share messages. Those messages are serialized in JSON and are defined at [structs.rs](server/src/structs.rs). All messages have an "op" field (which says the operation to perform) and "data" field (with required data for specified operation). If data is invalid or there are missing fields in "data", server will reply with an error response.
+
+For join, client sends a packet with the proper information to join. Server stores it in a hashmap linking client address and data.
+
+For send a message, client sends a message, the data field will be just the message, without user data. When the server receives it, it'll find the client address in the hashmap and package the user data into the message. Once it's done, message and user data is sent to all connections.
+
+## Troubleshooting
+
+Since TCP Chat is built over Tauri, it could be some issues while building it. Most of theese problems are missing dependencies. I'll add more points as I receive issues with a reasonable solution.
+
+### Linux: Failed to run custom build command for \<x>
+Error could be caused due to missing dependencies. Find the name of missing package at line where error says "Perhaps you should add the directory containing \<x>", where "x" is the name of the missing package. Try installing it or updating your system. Some examples of missing packages are `glibc` and `libsoup`.
 
 ## Release history
 
