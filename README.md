@@ -1,4 +1,4 @@
-<img width="100px" height="100px" align="right" alt="Inquirer Logo" src="assets/icon.png" title="Inquirer.js"/>
+<img width="100px" height="100px" align="right" src="assets/icon.png" />
 
 # TCP Chat
 
@@ -84,7 +84,7 @@ For send a message, client sends a message, the data field will be just the mess
 
 ## Troubleshooting
 
-Since TCP Chat is built over Tauri, it could be some issues while building it. Most of theese problems are missing dependencies. I'll add more points as I receive issues with a reasonable solution.
+Since TCP Chat client is built over Tauri, it could be some issues while building it. Most of theese problems are missing dependencies. I'll add more points as I receive issues with a reasonable solution.
 
 ### Linux: Failed to run custom build command for \<x>
 Error could be caused due to missing dependencies. Find the name of missing package at line where error says "Perhaps you should add the directory containing \<x>", where "x" is the name of the missing package. Try installing it or updating your system. Some examples of missing packages are `glibc` and `libsoup`.
@@ -106,6 +106,6 @@ Any PR is welcome! Is a small project so the guideline is to follow the code sty
 
 ## Links
 
-**[Web](https://gatomo.ga) - [Donate (via PayPal)](https://paypal.me/gatomooficial) - [Discord](https://discord.gg/E2yBpMq2Km) - [Revolt](https://rvlt.gg/fX4a7k1B)**
+**[Donate (via PayPal)](https://paypal.me/gatomooficial) - [Discord](https://discord.gg/E2yBpMq2Km) - [Revolt](https://rvlt.gg/fX4a7k1B)**
 
 _Gátomo - GNU General Public License v.3.0 License_
