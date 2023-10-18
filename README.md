@@ -115,7 +115,10 @@ Since TCP Chat client is built over Tauri, it could be some issues while buildin
 Error could be caused due to missing dependencies. Find the name of missing package at line where error says "Perhaps you should add the directory containing \<x>", where "x" is the name of the missing package. Try installing it or updating your system. Some examples of missing packages are `glibc` and `libsoup`.
 
 ## Release history
-
+-   1.1.0
+    -   Extend max buffer size to 65535 bytes
+    -   Add Docker support
+    -   Fix README
 -   1.0.0
     -   Initial release
 
