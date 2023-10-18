@@ -64,8 +64,7 @@ async fn connect(window: Window, req_data: Request) -> Result<(), Response> {
         leave_sender.try_send((Listener::Leave, e)).unwrap()
     });
 
-    // FIXME Again, this sucks
-    let mut buf = vec![0; 2048];
+    let mut buf = vec![0; u16::MAX as usize];
 
     loop {
         tokio::select! {

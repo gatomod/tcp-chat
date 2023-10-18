@@ -18,8 +18,7 @@ pub async fn handler(
 
     println!("[ ACK ] {} joined", addr);
 
-    // FIXME This sucks, can't read more than 2048 bytes
-    let mut buf = vec![0; 2048];
+    let mut buf = vec![0; u16::MAX as usize];
 
     loop {
         tokio::select! {
